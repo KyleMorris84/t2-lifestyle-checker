@@ -1,7 +1,5 @@
-export default function Header() {
+export default function Content() {
     return(
-        <div className="content">
-            <p>Content</p>
-        </div>
+        <p>Content</p>
     );
 }

@@ -1,7 +1,12 @@
+import './header.css'
+import healthIcon from "../assets/health_icon.png"
+
 export default function Header() {
     return(
         <div className="header">
-            <h1 className="title">Header</h1>
+            <img src={healthIcon} className="logo" alt="Health icon" />
+            <h1 className="title">T2 Lifestyle Checker</h1>
+            <h2 className="subtitle">A lifestyle checking web app</h2>
         </div>
     );
 }

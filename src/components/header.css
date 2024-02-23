@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    background: #1064b3;
+}
+
+.logo {
+    margin: 15px 20px;
+    width: 4rem;
+}
+
+.title {
+    margin-right: auto;
+    color: white;
+}
+
+.subtitle {
+    margin-right: 20px;
+    font-weight: 600;
+    color: white;
+    font-size: 1.2rem;
+}
