@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/t2-lifestyle-checker/static/css/main.aa2b9985.css",
+    "main.js": "/t2-lifestyle-checker/static/js/main.de617e1c.js",
+    "index.html": "/t2-lifestyle-checker/index.html",
+    "main.aa2b9985.css.map": "/t2-lifestyle-checker/static/css/main.aa2b9985.css.map",
+    "main.de617e1c.js.map": "/t2-lifestyle-checker/static/js/main.de617e1c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa2b9985.css",
+    "static/js/main.de617e1c.js"
+  ]
+}
