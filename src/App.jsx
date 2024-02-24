@@ -3,7 +3,7 @@ import Content from './components/Content.jsx'
 
 export default function App() {
   return (
-    <div className="container">
+    <div className="main">
       <Header />
       <Content />
     </div>
