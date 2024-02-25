@@ -1,0 +1,23 @@
+#questionnaire {
+    width: 30%;
+}
+
+.question {
+    display: flex;
+    flex-direction: row;
+
+    margin: 10px;
+    font-size: large;
+}
+
+.question > * {
+    width: fit-content;
+}
+
+.question > p {
+    margin-right: auto;
+}
+
+.question > div {
+    margin: 0px 10px 0px 0px;
+}

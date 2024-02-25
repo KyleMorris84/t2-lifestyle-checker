@@ -1,7 +1,7 @@
-import './content.css'
+import './signin.css'
 import {useState} from 'react'
 
-export default function Content() {
+export default function SignIn({setSignInComplete}) {
 
     const [userInfo, setUserInfo] = useState({
         nhsNumber: "",
@@ -9,6 +9,8 @@ export default function Content() {
         born: "",
         age: ""
     });
+    
+    const [submissionResult, setSubmissionResult] = useState("Valid");
 
     function handleChange(event) {
         let {name, value} = event.target
@@ -22,7 +24,8 @@ export default function Content() {
         })
     }
 
-    async function submit() {
+    async function submit(event) {
+        event.preventDefault();
         try {
             let response = await fetch(`https://al-tech-test-apim.azure-api.net/tech-test/t2/patients/${userInfo.nhsNumber}`, {
                 headers: {
@@ -40,12 +43,16 @@ export default function Content() {
             const dateNow = new Date();
             const dob = new Date(response.born);
             const diffTime = Math.abs(dateNow - dob);
-            const age = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
+            const age = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25))
+            setUserInfo(prevUserInfo => {
+                return({...prevUserInfo, "age" : age})
+            });
             if (age < 16) throw Error("Ineligible")
-            console.log("Details correct. Thanks for accessing the T2 Lifestyle Checker")
+            setSubmissionResult("Valid")
+            setSignInComplete(true)
         } catch (error) {
-            if (error.message === "Ineligible") console.log("You are not eligble for this service")
-            else console.log("Your details could not be found")
+            if (error.message === "Ineligible") setSubmissionResult("You are not eligble for this service")
+            else setSubmissionResult("Your details could not be found")
         }
     }
 
@@ -55,23 +62,24 @@ export default function Content() {
                 <h2>Sign in</h2>
                 <p>Welcome to the T2 Lifestyle Checker. Please sign in with your NHS number, surname and date of birth to continue</p>
             </div>
-            <div className = "input-container">
+            <form className="input-container" onSubmit={submit}>
                 <div className="entries">
                     <div>
                         <label>NHS Number</label>
-                        <input className="input" type="text" name="nhsNumber" onChange={handleChange}></input>
+                        <input className="input" type="text" name="nhsNumber" onChange={handleChange} required></input>
                     </div>
                     <div>
                         <label>Surname</label>
-                        <input className="input" type="text" name="name" onChange={handleChange}></input>
+                        <input className="input" type="text" name="name" onChange={handleChange} required></input>
                     </div>
                     <div>
                         <label>Date of birth</label>
-                        <input className="input" type="date" name="born" onChange={handleChange}></input>
+                        <input className="input" type="date" name="born" onChange={handleChange} required></input>
                     </div>
                 </div>
-                <button className="submit" onClick={submit}>Submit</button>
-            </div>
+                <button className="submit">Submit</button>
+            </form>
+            {submissionResult!=='Valid' && <p className="error-container">{submissionResult}</p> }
         </div>
     );
 }
