@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/t2-lifestyle-checker/static/css/main.7c6fb186.css",
-    "main.js": "/t2-lifestyle-checker/static/js/main.1029778a.js",
+    "main.js": "/t2-lifestyle-checker/static/js/main.de74dcf7.js",
     "static/media/health_icon.png": "/t2-lifestyle-checker/static/media/health_icon.93aa5ffd70ac75ff9afd.png",
     "index.html": "/t2-lifestyle-checker/index.html",
     "main.7c6fb186.css.map": "/t2-lifestyle-checker/static/css/main.7c6fb186.css.map",
-    "main.1029778a.js.map": "/t2-lifestyle-checker/static/js/main.1029778a.js.map"
+    "main.de74dcf7.js.map": "/t2-lifestyle-checker/static/js/main.de74dcf7.js.map"
   },
   "entrypoints": [
     "static/css/main.7c6fb186.css",
-    "static/js/main.1029778a.js"
+    "static/js/main.de74dcf7.js"
   ]
 }
