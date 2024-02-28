@@ -1,14 +1,7 @@
 import './signin.css'
 import {useState} from 'react'
 
-export default function SignIn({setSignInComplete}) {
-
-    const [userInfo, setUserInfo] = useState({
-        nhsNumber: "",
-        name: "",
-        born: "",
-        age: ""
-    });
+export default function SignIn({userInfo, setUserInfo, setSignInComplete}) {
     
     const [submissionResult, setSubmissionResult] = useState("Valid");
 
@@ -24,7 +17,7 @@ export default function SignIn({setSignInComplete}) {
         })
     }
 
-    async function submit(event) {
+    async function submitSignIn(event) {
         event.preventDefault();
         try {
             let response = await fetch(`https://al-tech-test-apim.azure-api.net/tech-test/t2/patients/${userInfo.nhsNumber}`, {
@@ -62,7 +55,7 @@ export default function SignIn({setSignInComplete}) {
                 <h2>Sign in</h2>
                 <p>Welcome to the T2 Lifestyle Checker. Please sign in with your NHS number, surname and date of birth to continue</p>
             </div>
-            <form className="input-container" onSubmit={submit}>
+            <form className="input-container" onSubmit={submitSignIn}>
                 <div className="entries">
                     <div>
                         <label>NHS Number</label>
