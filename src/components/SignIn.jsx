@@ -3,7 +3,7 @@ import {useState} from 'react'
 
 export default function SignIn({userInfo, setUserInfo, setSignInComplete}) {
     
-    const [submissionResult, setSubmissionResult] = useState("Valid");
+    const [submissionResult, setSubmissionResult] = useState("Valid")
 
     function handleChange(event) {
         let {name, value} = event.target
@@ -18,7 +18,7 @@ export default function SignIn({userInfo, setUserInfo, setSignInComplete}) {
     }
 
     async function submitSignIn(event) {
-        event.preventDefault();
+        event.preventDefault()
         try {
             let response = await fetch(`https://al-tech-test-apim.azure-api.net/tech-test/t2/patients/${userInfo.nhsNumber}`, {
                 headers: {
@@ -27,19 +27,19 @@ export default function SignIn({userInfo, setUserInfo, setSignInComplete}) {
             })
             if(!response.ok) throw Error("BadRequest")
             response = await response.json()
-            response = {...response, "name":response.name.split(",")[0]};
+            response = {...response, "name":response.name.split(",")[0]}
             response = {...response, "born":(response.born.substring(6,10) + "-"  + response.born.substring(3,5) + "-" + response.born.substring(0,2))}
 
-            const detailsMatch = await response.nhsNumber === userInfo.nhsNumber && response.name === userInfo.name && response.born === userInfo.born;
+            const detailsMatch = await response.nhsNumber === userInfo.nhsNumber && response.name === userInfo.name && response.born === userInfo.born
             if (!detailsMatch) throw Error("IncorrectDetails")
             
-            const dateNow = new Date();
-            const dob = new Date(response.born);
-            const diffTime = Math.abs(dateNow - dob);
+            const dateNow = new Date()
+            const dob = new Date(response.born)
+            const diffTime = Math.abs(dateNow - dob)
             const age = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25))
             setUserInfo(prevUserInfo => {
                 return({...prevUserInfo, "age" : age})
-            });
+            })
             if (age < 16) throw Error("Ineligible")
             setSubmissionResult("Valid")
             setSignInComplete(true)
@@ -74,5 +74,5 @@ export default function SignIn({userInfo, setUserInfo, setSignInComplete}) {
             </form>
             {submissionResult!=='Valid' && <p className="error-container">{submissionResult}</p> }
         </div>
-    );
+    )
 }

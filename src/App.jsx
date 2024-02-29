@@ -11,7 +11,7 @@ export default function App() {
     name: "",
     born: "",
     age: ""
-});
+})
 
   const [signInComplete, setSignInComplete] = useState(false)
 
@@ -31,5 +31,5 @@ export default function App() {
         />
       }
     </div>
-  );
+  )
 }

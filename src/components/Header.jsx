@@ -11,5 +11,5 @@ export default function Header() {
             <h1 className="title" onClick={refreshPage}>T2 Lifestyle Checker</h1>
             <h2 className="subtitle">A lifestyle checking web app</h2>
         </div>
-    );
+    )
 }

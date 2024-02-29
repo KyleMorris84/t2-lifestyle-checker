@@ -7,11 +7,13 @@
 .logo {
     margin: 15px 20px;
     width: 4rem;
+    cursor: pointer;
 }
 
 .title {
     margin-right: auto;
     color: white;
+    cursor: pointer;
 }
 
 .subtitle {
