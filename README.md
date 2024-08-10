@@ -1,6 +1,6 @@
 # T2 Lifestyle Checker Web App - Kyle Morris
 
-This is the repository for my T2 Lifestyle Checker Web App created for the AireLogic tech test. The live site can be found [here](https://Crypto84.github.io/t2-lifestyle-checker).
+This is the repository for my T2 Lifestyle Checker Web App created for the AireLogic tech test. The live site can be found [here](https://kylemorris84.github.io/t2-lifestyle-checker).
 
 ## Frameworks and Technologies
 
